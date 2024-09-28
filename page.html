@@ -1,0 +1,17 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screenlight</title>
+  </head>
+  <body></body>
+  <script>
+    const ws = new WebSocket(`ws://${window.location.host}`);
+    ws.onopen = () => {
+      ws.onmessage = (message) => {
+        console.log(message);
+        document.body.style.background = message.data;
+      };
+    };
+  </script>
+</html>
